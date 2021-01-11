@@ -1,0 +1,15 @@
+{% extends 'manipulate.html' %}
+{% block title %}주제 추가{% endblock %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <h1>설정</h1>
+
+        <h2><a class="btn btn-danger" href="{% url 'logout' %}">로그아웃</a><h2>
+        <a href="{% url 'home' %}" class="btn btn-secondary">돌아가기</a>
+    {% else %}
+        누구세요?<br>
+        <a href="{% url 'home' %}" class="btn btn-danger">ㅈㅅ</a>
+    {% endif %}
+    
+{% endblock %}

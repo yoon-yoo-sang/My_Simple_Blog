@@ -1,0 +1,20 @@
+{% extends 'manipulate.html' %}
+{% block title %}Adding New Post{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    <div class="container">
+        <h1>Add Blog Post...</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success">Post</button><br>
+
+    <br>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+{% else %}
+    COME BACK TO HOME!!!!<br>
+    <a href="{% url 'home' %}" class="btn btn-danger">Yeah</a>
+{% endif %}
+    </div>
+{% endblock %}

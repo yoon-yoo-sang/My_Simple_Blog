@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Delete Blog Post{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    <h1 class="my-5">글 삭제</h1>
+
+    <h3 class="my-5">삭제: {{ post.title }}</h3>
+    <div class="form-group my-5">
+        <form method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger">삭제</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary">돌아가기</a>
+        </form>
+    </div>
+{% else %}
+    <p>누구세요?</p>
+    <a href="{% url 'home' %}" class="btn btn-danger">ㅈㅅ</a>
+{% endif %}
+
+{% endblock %}

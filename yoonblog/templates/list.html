@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block list %}
+    <h1 class="menu-title">카테고리</h1>
+    <div class="menu-content">
+        {% for category in object_list %}
+            <p>{{ category.name }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

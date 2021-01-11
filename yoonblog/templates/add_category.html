@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}주제 추가{% endblock %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <h1>주제 추가</h1>
+
+        <table>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-success">주제 추가</button><br>
+        </table>
+
+        <br>
+        <a href="{% url 'home' %}" class="btn btn-secondary">돌아가기</a>
+    {% else %}
+        누구세요?<br>
+        <a href="{% url 'home' %}" class="btn btn-danger">ㅈㅅ</a>
+    {% endif %}
+    
+{% endblock %}
