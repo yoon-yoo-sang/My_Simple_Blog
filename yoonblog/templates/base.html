@@ -12,32 +12,29 @@
     <script src="{% static 'yoonblog.js' %}?{% now 'U' %}" type="text/javascript"></script>
     <title>{% block title %}Yoon's blog{% endblock %}</title>
   </head>
-  <body>
-    <header class="navbar navbar-expand bg-light d-flex sticky-top justify-content-end">
-      {% if user.is_authenticated %}
-      <span>
-        <button class="navbar-brand bar" Onclick="location.href='{% url 'setting' %}'">
-          <i class="fas fa-cog"></i>
-        </button>
-      </span>
-      {% else %}
-      <span>
-        <button class="navbar-brand bar" Onclick="location.href='{% url 'login' %}' ">
-          <i class="fas fa-key"></i>
-        </button>
-      </span>
-      {% endif %}
-      <span>
-        <button class="navbar-brand bar" id="menu-open" onclick="turn_menu()">
-          <i class="fas fa-bars"></i>
-        </button>
-        <button class="navbar-brand bar" id="menu-fold" onclick="turn_menu()">
-          <i class="fas fa-minus"></i>
-        </button>
-      </span>
-    </header>
-    <div class="row content">
-      <div class="page col">
+  <body class="row">
+    <div class="col content" id="full">
+      <div class="col" id="page">
+        <header class="navbar navbar-expand bg-light d-flex sticky-top justify-content-end">
+          {% if user.is_authenticated %}
+          <span>
+            <button class="navbar-brand bar" Onclick="location.href='{% url 'setting' %}'">
+              <i class="fas fa-cog"></i>
+            </button>
+          </span>
+          {% else %}
+          <span>
+            <button class="navbar-brand bar" Onclick="location.href='{% url 'login' %}' ">
+              <i class="fas fa-key"></i>
+            </button>
+          </span>
+          {% endif %}
+          <span>
+            <button class="navbar-brand bar" id="menu-open" onclick="turn_menu()">
+              <i class="fas fa-bars"></i>
+            </button>
+          </span>
+        </header>
         <div class="row align-items-center homepage-cover" OnClick="location.href = '{% url 'home' %}'">
           <h1 class="text-center align-middle homepage-title">문과생 코더의 개발블로그</h1>
         </div>
@@ -46,7 +43,12 @@
             {% endblock %}
         </div>
       </div>
-      <div class="col-2" id="menu">
+    </div>
+    <div class="col-2" id="menu">
+      <button class="navbar-brand bar" id="menu-fold" onclick="turn_menu()">
+        <i class="fas fa-minus"></i>
+      </button>
+      <div class="menu-frame">
         <h2 class="menu-title">프로필</h1>
         <h2 class="menu-title">카테고리</h1>
           {% for category in list %}
