@@ -7,14 +7,15 @@
         <h1>Add Blog Post...</h1>
         <form method="POST">
             {% csrf_token %}
+            {{ form.media }}
             {{ form.as_p }}
             <button class="btn btn-success">Post</button><br>
 
     <br>
     <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
 {% else %}
-    COME BACK TO HOME!!!!<br>
-    <a href="{% url 'home' %}" class="btn btn-danger">Yeah</a>
+    나가<br>
+    <a href="{% url 'home' %}" class="btn btn-danger">ㅇㅋ</a>
 {% endif %}
     </div>
 {% endblock %}

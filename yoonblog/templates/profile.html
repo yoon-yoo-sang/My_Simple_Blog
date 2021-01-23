@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="border-bottom my-5">
+        <h1 class="detail-title my-5">프로필</h1>
+    </div>
+
+    <div class="my-5">
+        <p>이름: 윤유상</p>
+        <p>전공: 경영학과</p>
+        <p>이메일: yyss6188@naver.com</p>
+        <p>깃허브: https://github.com/yoon-yoo-sang</p>
+    </div>
+    <a href="{% url 'home' %}" class="btn btn-secondary">돌아가기</a>
+    <script>pageDown()</script>
+</div>
+
+{% endblock %}

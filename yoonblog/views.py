@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post, Category
 from .forms import PostForm, EditForm
 from django.urls import reverse_lazy
+from django.db.models import Count
 
 class HomeView(ListView):
     model = Post
@@ -14,10 +15,11 @@ class HomeView(ListView):
     ordering = ['-post_date']
 
 def CategoryView(request, cats):
+    category_name = Category.objects.filter(id=cats).values_list('name', 'name')[0][1]
+    categories = Category.objects.annotate(post_category=Count('posts__category'))
     category_posts = Post.objects.filter(category=cats)
     _list = Category.objects.all()
-    no_data = '등록된 게시물이 없습니다.'
-    return render(request, 'categories.html', {'cats':cats, 'category_posts': category_posts, 'list':_list})
+    return render(request, 'categories.html', {'cats':cats, 'category_name': category_name, 'category_posts': category_posts, 'list':_list})
 
 class ArticleDetailView(DetailView):
     model = Post
@@ -50,3 +52,7 @@ class DeletePostView(DeleteView):
 class SettingView(ListView):
     model = Post
     template_name = 'setting.html'
+
+def ProfileView(request):
+    _list = Category.objects.all()
+    return render(request, 'profile.html', {'list':_list})

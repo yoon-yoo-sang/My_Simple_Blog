@@ -37,17 +37,47 @@ body{
 
 /* 페이지 내 각 컨텐츠 */
 
+#main-content{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#homepage-cover {
+    background-image: url("./city_img.jpg");
+    background-color:antiquewhite;
+    background-size: 1000px;
+    background-position: center;
+    justify-content: center;
+    height: 400px;
+    cursor: pointer;
+    color: black;
+    margin: 0;
+}
+
+#homepage-title {
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    width: 500px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
 #full{
     padding: 0;
-    margin: 0;
+    margin-right: 12px;
     height: 100%;
-    overflow: auto;
-    direction: rtl;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition-duration: 0.5s;
 }
 
 #page{
     padding:0%;
-    direction: ltr;
 }
 
 #menu{
@@ -57,9 +87,12 @@ body{
     padding: 0 0 30px;
     margin: 0;
     display: block;
+    overflow-y:scroll;
     transition-duration: 0.5s;
     text-decoration-skip: spaces;
-    background-color: ivory;
+    background-color: white;
+    border-left: 1px #bfbdbd solid;
+    color: #616060;
 }
 
 #menu-frame {
@@ -74,9 +107,29 @@ body{
     display:none;
 }
 
+#menu-profile{
+    justify-content: center;
+    height: 300px;
+    width: 100%;
+}
+
+#menu-profile-picture{
+    justify-content: center;
+    font-size: 200px;
+    margin-left:70px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.menu-profile-information{
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
 .menu-title{
     height: 35px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 700;
     overflow: hidden;
     margin: 40px 0;
@@ -84,7 +137,7 @@ body{
 
 .menu-content{
     height: 32px;
-    font-size: 25px;
+    font-size: 15px;
     overflow: hidden;
     margin: 20px 10px;
 }
@@ -111,29 +164,34 @@ body{
     font-weight: 600;
 }
 
-.home-list-body{
+.home-list-body > *{
     margin-top: 6rem;
     margin-bottom: 6rem;
-    font-size: 20px;
-}
-
-.homepage-cover {
-    background-color:antiquewhite;
-    background-size: 100%;
-    height: 400px;
-    cursor: pointer;
-    color: black;
+    font-size: 1rem;
+    font-weight: normal;
     margin: 0;
+    display: inline;
 }
 
-.homepage-title {
-    height: 120px;
-    font-size: 50px;
-    font-weight: bold;
-    overflow: hidden;
+.home-list-body img{
+    width: 200px !important;
+    height: 100px !important;
 }
 
 .detail-title{
     font-size: 30px;
     font-weight: 600;
+}
+
+/* 스크롤바 */
+
+*::-webkit-scrollbar {
+    width: 5px;
+    margin-right: 5px;
+  }
+*::-webkit-scrollbar-thumb {
+    background-color: gray;
+}
+*::-webkit-scrollbar-track {
+    background-color: white;
 }

@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="container home-body">
-    <h2> {{ cats }} </h2>
+    <h2> {{ category_name }} </h2>
     {% for post in category_posts %}
     <div class="home-list-box">
         <div class="home-list-box-upper">
@@ -23,5 +23,6 @@
     {% endfor %}
     {{ no_data }}
 </div>
+<script>pageDownSmooth()</script>
 
 {% endblock %}

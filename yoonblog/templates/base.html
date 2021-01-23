@@ -35,10 +35,10 @@
             </button>
           </span>
         </header>
-        <div class="row align-items-center homepage-cover" OnClick="location.href = '{% url 'home' %}'">
-          <h1 class="text-center align-middle homepage-title">문과생 코더의 개발블로그</h1>
+        <div class="row align-items-center" id ="homepage-cover" OnClick="location.href = '{% url 'home' %}'">
+          <h1 class="text-center align-middle" id = "homepage-title">문과생 코더의 개발블로그</h1>
         </div>
-        <div>
+        <div id="main-content">
             {% block content %}
             {% endblock %}
         </div>
@@ -48,13 +48,20 @@
       <button class="navbar-brand bar" id="menu-fold" onclick="turn_menu()">
         <i class="fas fa-minus"></i>
       </button>
-      <div class="menu-frame">
-        <h2 class="menu-title">프로필</h1>
-        <h2 class="menu-title">카테고리</h1>
+      <div id="menu-frame">
+        <div id="menu-profile">
+          <i class="fas fa-user" id ="menu-profile-picture"></i>
+          <div>
+            <h2 class="menu-profile-information">윤유상</h2>
+            <h3 class="menu-profile-information">yyss6188@naver.com</h3>
+          </div>
+        </div>
+        <h2 class="menu-title"><a class="normal-link" href="/profile">프로필</a></h2>
+        <h2 class="menu-title">카테고리</h2>
           {% for category in list %}
-            <div class="menu-content">
-              <a class="normal-link" href="/article/category/{{ category.name }}">{{ category.name }}</a>
-            </div>
+                <div class="menu-content">
+                    <a class="normal-link" href="/article/category/{{ category.id }}">{{ category.name }}</a>
+                </div>
           {% endfor %}
         <h2 class="menu-title">About</h2>
       </div>
@@ -64,33 +71,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
   </body>
 </html>
-
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          </button>
-          <div class="collapse navbar-collapse"  id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              {% if user.is_authenticated %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'post' %}">Add Post</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'category' %}">Add Category</a>
-                </li>
-              {% else %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'register' %}">Register</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}">Login</a>
-                </li>
-              {% endif %}
-            </ul>
-          </div>
-      </div>
-    </nav> -->
-    
